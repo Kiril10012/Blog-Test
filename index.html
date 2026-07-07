@@ -2,437 +2,107 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📌 Broski's Pinnwand</title>
+    <title>Meine Pinnwand</title>
     <style>
-        /* ==========================================
-           ALL DEIN CSS (clean & minimal)
-           ========================================== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Courier New', monospace;
-            max-width: 700px;
-            margin: 30px auto;
-            padding: 0 20px;
-            background: #0a0a0a;
-            color: #00ff41;
-            line-height: 1.6;
-        }
-
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #00ff41;
-            padding-bottom: 10px;
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
-        }
-
-        .form-container {
-            background: #111;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #00ff41;
-            margin-bottom: 30px;
-        }
-
-        input, textarea {
-            width: 100%;
-            background: #1a1a1a;
-            color: #00ff41;
-            border: 1px solid #333;
-            padding: 12px;
-            font-family: 'Courier New', monospace;
-            font-size: 1rem;
-            border-radius: 4px;
-            transition: border 0.3s;
-        }
-
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: #00ff41;
-            box-shadow: 0 0 10px rgba(0, 255, 65, 0.1);
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 80px;
-        }
-
-        .btn {
-            background: #00ff41;
-            color: #0a0a0a;
-            border: none;
-            padding: 12px 24px;
-            font-family: 'Courier New', monospace;
-            font-weight: bold;
-            font-size: 1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.2s;
-            margin-top: 10px;
-        }
-
-        .btn:hover {
-            background: #00cc33;
-            transform: scale(0.98);
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
-        }
-
-        .btn-danger {
-            background: #ff0044;
-            color: white;
-        }
-
-        .btn-danger:hover {
-            background: #cc0033;
-            box-shadow: 0 0 20px rgba(255, 0, 68, 0.3);
-        }
-
-        .posts-container {
-            margin-top: 20px;
-        }
-
-        .post {
-            background: #111;
-            padding: 20px;
-            margin-bottom: 15px;
-            border-left: 4px solid #333;
-            border-radius: 4px;
-            transition: all 0.3s;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .post:hover {
-            background: #151515;
-        }
-
-        .post.pinned {
-            border-left-color: #ff00ff;
-            background: #1a0a1a;
-            box-shadow: 0 0 30px rgba(255, 0, 255, 0.05);
-        }
-
-        .post-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-
-        .post-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            word-break: break-word;
-        }
-
-        .post-title .pin-icon {
-            color: #ff00ff;
-            margin-right: 8px;
-        }
-
-        .post-date {
-            color: #666;
-            font-size: 0.8rem;
-        }
-
-        .post-content {
-            margin: 10px 0 15px 0;
-            word-break: break-word;
-            color: #b0b0b0;
-        }
-
-        .post-actions {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .post-actions .btn {
-            font-size: 0.8rem;
-            padding: 6px 14px;
-            margin-top: 0;
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 40px 20px;
-            color: #444;
-            border: 1px dashed #333;
-            border-radius: 8px;
-        }
-
-        .loading {
-            text-align: center;
-            padding: 40px;
-            color: #666;
-        }
-
-        .status-bar {
-            margin-top: 20px;
-            padding: 10px;
-            background: #111;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            color: #444;
-            text-align: center;
-            border: 1px solid #1a1a1a;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Mobile */
-        @media (max-width: 600px) {
-            body { margin: 15px auto; }
-            h1 { font-size: 1.5rem; }
-            .post-header { flex-direction: column; align-items: flex-start; }
-        }
+        /* Dein gesamtes CSS kommt hier rein */
+        body { font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: #f4f4f9; }
+        .pinnwand { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .eintrag { border-bottom: 1px solid #ddd; padding: 10px 0; }
+        .name { font-weight: bold; color: #2c3e50; }
+        .zeit { font-size: 0.8em; color: #7f8c8d; }
+        form { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+        input, textarea, button { padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        button { background: #3498db; color: white; border: none; cursor: pointer; }
     </style>
 </head>
 <body>
+    <div class="pinnwand">
+        <h1>📌 Pinnwand</h1>
+        
+        <!-- FORMULAR zum Schreiben -->
+        <form id="pinnwandForm">
+            <input type="text" id="nameInput" placeholder="Dein Name (optional)" />
+            <textarea id="nachrichtInput" placeholder="Deine Nachricht..." required></textarea>
+            <button type="submit">📨 Abschicken</button>
+        </form>
 
-    <h1>📌 Broski's Pinnwand</h1>
-
-    <!-- ===== FORMULAR ===== -->
-    <div class="form-container">
-        <input type="text" id="titleInput" placeholder="📝 Titel..." />
-        <br><br>
-        <textarea id="contentInput" placeholder="Dein Text... (Strg+Enter zum Abschicken)"></textarea>
-        <br>
-        <button class="btn" onclick="addPost()">🚀 Post abschicken</button>
-        <button class="btn btn-danger" onclick="deleteAllPosts()" style="margin-left:10px;">🗑️ Alle löschen</button>
-    </div>
-
-    <!-- ===== POSTS ===== -->
-    <div id="postsContainer">
-        <div class="loading">⏳ Lade Posts...</div>
-    </div>
-
-    <!-- ===== STATUS ===== -->
-    <div class="status-bar" id="statusBar">
-        💾 Daten werden in GitHub Gist gespeichert
+        <!-- Bereich für die Einträge -->
+        <div id="eintraegeContainer">
+            <p>Lade Nachrichten...</p>
+        </div>
     </div>
 
     <script>
-        // ============================================================
-        //  BACKEND: GITHUB GIST ALS DATENBANK
-        // ============================================================
+        // --- HIER KOMMT DEINE APP-SCRIPT-URL REIN (aus Schritt 2) ---
+        const SCRIPT_URL = 'DEINE_WEB_APP_URL_HIER';
 
-        // 🔧 DEINE GITHUB GIST CREDENTIALS (HIER EINTRAGEN!)
-        const GIST_ID = '1f92bd72b112b88f6419e387baab5fd8';      // z.B. "abc123def456"
-        const GITHUB_TOKEN = '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'; // z.B. "ghp_xxxxxxxxxxxx"
-
-        // ============================================================
-        //  CORE FUNKTIONEN (alles bleibt gleich, nur mit GitHub)
-        // ============================================================
-
-        async function getPosts() {
+        // 1. Funktion: Alle Einträge laden und anzeigen
+        async function ladeEintraege() {
+            const container = document.getElementById('eintraegeContainer');
             try {
-                const response = await fetch(`https://api.github.com/gists/${GIST_ID}`);
-                if (!response.ok) throw new Error('Gist nicht gefunden');
-                const data = await response.json();
-                const content = JSON.parse(data.files['blog.json'].content);
-                return content.posts || [];
+                const response = await fetch(SCRIPT_URL);
+                if (!response.ok) throw new Error('Netzwerkfehler');
+                const eintraege = await response.json();
+
+                if (eintraege.length === 0) {
+                    container.innerHTML = '<p>Noch keine Einträge. Schreib was! 😊</p>';
+                    return;
+                }
+
+                // Einträge rückwärts anzeigen (neueste zuerst)
+                container.innerHTML = eintraege.reverse().map(e => `
+                    <div class="eintrag">
+                        <div class="name">${e.Name || 'Anonym'}</div>
+                        <div class="zeit">${e.Zeitstempel ? new Date(e.Zeitstempel).toLocaleString() : ''}</div>
+                        <p>${e.Nachricht}</p>
+                    </div>
+                `).join('');
             } catch (error) {
-                console.error('Fehler beim Laden:', error);
-                setStatus('⚠️ Fehler beim Laden der Daten', true);
-                return [];
+                container.innerHTML = `<p style="color:red;">Fehler beim Laden: ${error.message}</p>`;
             }
         }
 
-        async function savePosts(posts) {
+        // 2. Funktion: Neuen Eintrag abschicken
+        document.getElementById('pinnwandForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const name = document.getElementById('nameInput').value.trim();
+            const message = document.getElementById('nachrichtInput').value.trim();
+
+            if (!message) {
+                alert('Bitte schreib eine Nachricht!');
+                return;
+            }
+
+            const button = event.target.querySelector('button');
+            button.disabled = true;
+            button.textContent = 'Sende...';
+
             try {
-                const response = await fetch(`https://api.github.com/gists/${GIST_ID}`, {
-                    method: 'PATCH',
-                    headers: {
-                        'Authorization': `token ${GITHUB_TOKEN}`,
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        files: {
-                            'blog.json': {
-                                content: JSON.stringify({ posts }, null, 2)
-                            }
-                        }
-                    })
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // Wichtig für Google Apps Script!
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: name, message: message })
                 });
 
-                if (!response.ok) throw new Error('Fehler beim Speichern');
-                setStatus('✅ Gespeichert!', false);
-                return true;
+                // Achtung: Wegen 'no-cors' bekommen wir keine Antwort. 
+                // Wir gehen einfach davon aus, dass es geklappt hat.
+                document.getElementById('nameInput').value = '';
+                document.getElementById('nachrichtInput').value = '';
+                alert('✅ Nachricht gesendet! Seite wird neu geladen...');
+                location.reload(); // Lädt die Seite neu und zeigt den neuen Eintrag
+
             } catch (error) {
-                console.error('Fehler beim Speichern:', error);
-                setStatus('❌ Fehler beim Speichern!', true);
-                return false;
-            }
-        }
-
-        // ============================================================
-        //  FRONTEND LOGIK (fast identisch mit vorher)
-        // ============================================================
-
-        async function addPost() {
-            const title = document.getElementById('titleInput').value.trim();
-            const content = document.getElementById('contentInput').value.trim();
-
-            if (!title || !content) {
-                setStatus('⚠️ Titel und Text dürfen nicht leer sein!', true);
-                return;
-            }
-
-            const posts = await getPosts();
-            const newPost = {
-                id: Date.now(),
-                title: title,
-                content: content,
-                pinned: false,
-                date: new Date().toLocaleString('de-DE')
-            };
-
-            posts.push(newPost);
-            const success = await savePosts(posts);
-            if (success) {
-                document.getElementById('titleInput').value = '';
-                document.getElementById('contentInput').value = '';
-                await renderPosts();
-                setStatus('✅ Post erstellt!', false);
-            }
-        }
-
-        async function togglePin(id) {
-            let posts = await getPosts();
-            
-            // Alle auf unpinned setzen
-            posts.forEach(p => p.pinned = false);
-            
-            // Den richtigen pinned setzen
-            const post = posts.find(p => p.id === id);
-            if (post) {
-                post.pinned = true;
-                const success = await savePosts(posts);
-                if (success) {
-                    await renderPosts();
-                    setStatus('📌 Post angepinnt!', false);
-                }
-            }
-        }
-
-        async function deletePost(id) {
-            if (!confirm('💀 Wirklich löschen?')) return;
-            
-            let posts = await getPosts();
-            posts = posts.filter(p => p.id !== id);
-            const success = await savePosts(posts);
-            if (success) {
-                await renderPosts();
-                setStatus('🗑️ Gelöscht!', false);
-            }
-        }
-
-        async function deleteAllPosts() {
-            if (!confirm('💀 ALLE Posts löschen? Das kann nicht rückgängig gemacht werden!')) return;
-            
-            const success = await savePosts([]);
-            if (success) {
-                await renderPosts();
-                setStatus('🗑️ Alle Posts gelöscht!', false);
-            }
-        }
-
-        async function renderPosts() {
-            const container = document.getElementById('postsContainer');
-            const posts = await getPosts();
-
-            if (posts.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-state">
-                        🕳️ Noch keine Posts<br>
-                        <span style="font-size:0.8rem;color:#333;">Schreib den ersten!</span>
-                    </div>
-                `;
-                return;
-            }
-
-            // Sortieren: Gepinnte zuerst, dann nach Datum (neueste zuerst)
-            posts.sort((a, b) => {
-                if (a.pinned && !b.pinned) return -1;
-                if (!a.pinned && b.pinned) return 1;
-                return b.id - a.id;
-            });
-
-            container.innerHTML = posts.map(post => `
-                <div class="post ${post.pinned ? 'pinned' : ''}">
-                    <div class="post-header">
-                        <div class="post-title">
-                            ${post.pinned ? '<span class="pin-icon">📌</span>' : ''}
-                            ${post.title}
-                        </div>
-                        <div class="post-date">${post.date || 'Unbekannt'}</div>
-                    </div>
-                    <div class="post-content">${post.content}</div>
-                    <div class="post-actions">
-                        <button class="btn" onclick="togglePin(${post.id})">
-                            ${post.pinned ? '📌 Entpinnen' : '📌 Anpinnen'}
-                        </button>
-                        <button class="btn btn-danger" onclick="deletePost(${post.id})">
-                            🗑️ Löschen
-                        </button>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        // ============================================================
-        //  HELPER FUNCTIONS
-        // ============================================================
-
-        function setStatus(message, isError = false) {
-            const statusBar = document.getElementById('statusBar');
-            statusBar.textContent = message;
-            statusBar.style.color = isError ? '#ff0044' : '#00ff41';
-            statusBar.style.borderColor = isError ? '#ff0044' : '#1a1a1a';
-            
-            // Nach 3 Sekunden zurücksetzen
-            clearTimeout(statusBar._timeout);
-            statusBar._timeout = setTimeout(() => {
-                statusBar.textContent = '💾 Daten werden in GitHub Gist gespeichert';
-                statusBar.style.color = '#444';
-                statusBar.style.borderColor = '#1a1a1a';
-            }, 3000);
-        }
-
-        // ============================================================
-        //  INIT
-        // ============================================================
-
-        async function init() {
-            await renderPosts();
-            setStatus('🚀 Bereit!', false);
-        }
-
-        // Tastenkürzel: Strg+Enter zum Abschicken
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
-                e.preventDefault();
-                addPost();
+                alert('❌ Fehler beim Senden: ' + error.message);
+            } finally {
+                button.disabled = false;
+                button.textContent = '📨 Abschicken';
             }
         });
 
-        // Seite starten
-        init();
-
-        console.log('🔥 Broski-Blog läuft mit GitHub Gist als Datenbank!');
-        console.log(`📁 Gist ID: ${GIST_ID}`);
+        // Beim Laden der Seite: Einträge holen
+        ladeEintraege();
     </script>
-
 </body>
 </html>
